@@ -4,7 +4,7 @@
 From Oct 29 12:30 p.m to Oct 31 9:30 p.m Requests to the website responded with an ERROR 500, this affected 35% of users since the requests corresponded to a query module. The users could not access to the web page and the services associated because the apache server was down. The suspension was due to an incorrect file name in the last update.
 
 ## Timeline (Eastern Standard Time)
-- May 19
+- Oct 29
 * 12:30 p.m : Code push to server
 * 1:30 p.m : Deploy code 
 * 1:45 p.m : Outage begins
@@ -15,7 +15,7 @@ From Oct 29 12:30 p.m to Oct 31 9:30 p.m Requests to the website responded with 
 * 3:00 a.m : Check the apache server configuration files line by line. sites-available, /etc/apache2/, /var/www/html/.
 ![](https://github.com/Emanuel-js/alx-system_engineering-devops/blob/main/0x19-postmortem/images/sites%20available.png?raw=true)
 ![](https://github.com/Emanuel-js/alx-system_engineering-devops/blob/main/0x19-postmortem/images/document%20root.png?raw=true)
-- May 20
+- Oct 30
 * 8:00 a.m: Check the logs associated (error logs, access logs) 
 * 10:00 a.m: Use the ps aux comand to detect what process are associated to the apache server. apache2.
 ![](https://github.com/juliushakes/alx-system_engineering-devops/blob/main/0x19-postmortem/images/psaux.png?raw=true)
@@ -23,7 +23,7 @@ From Oct 29 12:30 p.m to Oct 31 9:30 p.m Requests to the website responded with 
 ![](https://github.com/juliushakes/alx-system_engineering-devops/blob/main/0x19-postmortem/images/strace%20127.png?raw=true)
 * 11:00 a.m: Use the strace command to the data apache server process with a long list of return -1 errors. www-data
 [Links](https://github.com/juliushakes/alx-system_engineering-devops/blob/main/0x19-postmortem/images/strace%20161.txt)
-- May 21
+- May 31
 * 8:00 a.m: Read the result of the strace command verifying line by line the associated services and possible errors
 * 11:00 am: Found error on deploy. The file /var/www/html/wp-includes/class-wp-locale.phpp was a typo error 
 * 11:25 am: Run script to fix it
